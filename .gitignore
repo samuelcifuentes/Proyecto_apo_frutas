@@ -1,0 +1,25 @@
+# Datos pesados (se descargan de Kaggle, ver README)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Modelos entrenados
+experiments/checkpoints/*
+!experiments/checkpoints/.gitkeep
+*.h5
+*.keras
+*.pkl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db
+.env
+kaggle.json
