@@ -8,9 +8,12 @@ Proyecto final de **Algoritmos y Programación III** — Universidad Icesi, 2026
 
 | Nombre | Rol |
 |--------|-----|
-| Samuel Cifuentes | Datos, EDA, preprocesamiento, ética e impactos |
-| Juan Camilo | Extracción de características y modelos de ML clásico |
-| Andrés Fajardo | CNN, evaluación y despliegue (Streamlit) |
+| Samuel Cifuentes | Datos: EDA, segmentación, recortes y preprocesamiento |
+| Juan Camilo | Extracción de características, estimación de tamaño y modelos de ML clásico |
+| Andrés Fajardo | CNN, evaluación y comparación de modelos |
+| Samuel Lasso | Etiquetado de la clase "Regular", ética e impactos, despliegue (Streamlit) |
+
+El detalle de las responsabilidades está en [`docs/responsabilidades.md`](docs/responsabilidades.md).
 
 ## Objetivo
 Construir un sistema que, a partir de la foto de una fruta individual sobre fondo uniforme,
