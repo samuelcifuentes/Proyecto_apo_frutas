@@ -42,6 +42,25 @@ def _resize_max(img: np.ndarray, max_side: int = WORK_SIZE) -> tuple[np.ndarray,
     return img, scale
 
 
+_REMBG_SESSION = None
+
+
+def _mask_rembg(img: np.ndarray) -> np.ndarray:
+    """
+    Máscara con rembg (modelo U²-Net preentrenado para quitar fondos, variante ligera
+    'u2netp'). Es una red de segmentación de "objetos salientes": predice para cada píxel
+    la probabilidad de pertenecer al objeto principal. Umbral 0.5 → máscara binaria.
+    Se usa en las fotos de Mixed, donde los fondos (pasto, tela de color) hacen fallar
+    los métodos clásicos. Requiere `pip install rembg onnxruntime`.
+    """
+    global _REMBG_SESSION
+    from rembg import new_session, remove  # import perezoso: solo si se usa
+    if _REMBG_SESSION is None:
+        _REMBG_SESSION = new_session("u2netp")
+    m = remove(img, session=_REMBG_SESSION, only_mask=True)
+    return (np.asarray(m) > 127).astype(np.uint8) * 255
+
+
 def _mask_saturation(img: np.ndarray) -> np.ndarray:
     """Candidata 1: Otsu sobre la saturación (S de HSV). La fruta suele ser más colorida que el fondo."""
     s = cv2.GaussianBlur(cv2.cvtColor(img, cv2.COLOR_BGR2HSV)[..., 1], (5, 5), 0)
@@ -197,3 +216,85 @@ def crop_fruit(img_bgr: np.ndarray, seg: dict, pad: float = 0.08, black_bg: bool
     if black_bg:
         img[seg["mask"] == 0] = 0
     return img[y0:y1, x0:x1]
+
+
+# ---------------------------------------------------------------------------
+# Varias frutas por imagen (carpeta Mixed Qualit_Fruits)
+# ---------------------------------------------------------------------------
+def _split_touching(mask: np.ndarray, peak_frac: float = 0.55) -> np.ndarray:
+    """
+    Separa frutas que se tocan con la transformada de distancia + watershed.
+
+    La transformada de distancia asigna a cada píxel de la fruta su distancia al
+    fondo más cercano: el centro de cada fruta queda como un "pico" (≈ su radio) y
+    el punto de contacto entre dos frutas queda como un "valle" estrecho.
+    Para cada región conectada tomamos como semillas las zonas con distancia mayor a
+    `peak_frac` × (máximo de esa región); así dos círculos que se tocan dan dos
+    semillas. Luego watershed "inunda" desde cada semilla y donde dos inundaciones se
+    encuentran queda la frontera entre frutas.
+    Devuelve una imagen de etiquetas (0 = fondo, 1..k = frutas).
+    """
+    dist = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
+    n_cc, cc = cv2.connectedComponents(mask)
+    peaks = np.zeros(mask.shape, np.uint8)
+    for k in range(1, n_cc):
+        region = cc == k
+        dmax = dist[region].max()
+        peaks[region & (dist > peak_frac * dmax)] = 255
+    if not peaks.any():
+        return np.zeros(mask.shape, np.int32)
+    _, markers = cv2.connectedComponents(peaks)
+    markers = markers + 1                      # fondo seguro = 1
+    markers[cv2.subtract(mask, peaks) > 0] = 0  # zona a decidir por watershed
+    markers = cv2.watershed(cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR), markers)
+    markers[markers <= 1] = 0                  # quita fondo y fronteras (-1)
+    return np.where(markers > 0, markers - 1, 0).astype(np.int32)
+
+
+def find_fruits(img_bgr: np.ndarray, method: str = "rembg", min_area_frac: float = 0.003,
+                max_area_frac: float = 0.7) -> list[dict]:
+    """
+    Encuentra TODAS las frutas de una imagen (p. ej. fotos de Mixed con varias frutas).
+
+    method = "rembg"   → máscara con U²-Net (recomendado, robusto a fondos difíciles)
+    method = "classic" → máscaras de Otsu (saturación / distancia al fondo)
+
+    Devuelve una lista de diccionarios {contour, bbox, area, d_eq, d_norm} en
+    coordenadas de la imagen original, ordenada de izquierda a derecha.
+    """
+    H, W = img_bgr.shape[:2]
+    small, scale = _resize_max(img_bgr, 512)   # más resolución: las frutas son pequeñas
+    h, w = small.shape[:2]
+
+    def components(mask):
+        labels = _split_touching(mask)
+        out = []
+        for k in range(1, labels.max() + 1):
+            comp = (labels == k).astype(np.uint8) * 255
+            cs, _ = cv2.findContours(comp, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+            if not cs:
+                continue
+            c = max(cs, key=cv2.contourArea)
+            a = cv2.contourArea(c)
+            if not (min_area_frac * h * w <= a <= max_area_frac * h * w):
+                continue
+            out.append(c)
+        return out
+
+    if method == "rembg":
+        best = components(_clean(_mask_rembg(small), k=7))
+    else:
+        best = []
+        for m in (_mask_saturation(small), _mask_background_distance(small)):
+            cs = components(_clean(m, k=7))
+            if len(cs) > len(best):
+                best = cs
+
+    fruits = []
+    for c in best:
+        cf = (c.astype(np.float32) / scale).astype(np.int32)
+        area = float(cv2.contourArea(cf))
+        d_eq = float(np.sqrt(4.0 * area / np.pi))
+        fruits.append({"contour": cf, "bbox": cv2.boundingRect(cf), "area": area,
+                       "d_eq": d_eq, "d_norm": d_eq / min(H, W)})
+    return sorted(fruits, key=lambda f: f["bbox"][0])

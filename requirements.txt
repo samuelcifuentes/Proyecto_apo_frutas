@@ -10,3 +10,5 @@ tensorflow
 streamlit
 jupyter
 kaggle
+rembg
+onnxruntime

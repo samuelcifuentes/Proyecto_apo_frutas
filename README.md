@@ -47,7 +47,21 @@ tests/           pruebas
 ## Cómo ejecutar
 ```bash
 pip install -r requirements.txt
+
+# 1. Descargar el dataset de Kaggle y descomprimirlo en data/raw/
+# 2. Recortar las frutas de las fotos Mixed (≈12 min, reanudable)
+python -m src.data.crop_mixed
+# 3. Preprocesar: balanceo, train/val/test, imágenes 128x128 y normalización (≈5 min, reanudable)
+python -m src.data.preprocess
+# 4. App
 streamlit run app/app.py
+```
+
+`data/splits.csv` está en el repo para que **todos usen la misma división** train/val/test.
+Para cargar los datos en un modelo:
+```python
+from src.data.dataset import load_split, normalize, augment
+X_train, y_train, meta = load_split("train")   # y: good=0, regular=1, bad=2
 ```
 
 ## Entregables
