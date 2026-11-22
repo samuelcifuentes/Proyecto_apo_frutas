@@ -5,6 +5,8 @@ Responsable: Samuel Cifuentes — Fase 3 CRISP-DM (preparación de datos).
 
 Idea general
 ------------
+Método por defecto: rembg (U²-Net preentrenado), ver segment_fruit().
+Método clásico (respaldo):
 1. Reducimos la imagen a un tamaño de trabajo (máx. 256 px) para que sea rápido.
 2. Creamos DOS máscaras candidatas con el umbral de Otsu (elige automáticamente el
    umbral que mejor separa dos grupos de píxeles, minimizando la varianza intra-grupo):
@@ -139,9 +141,15 @@ def _main_contour(mask: np.ndarray, min_area_frac: float = 0.01):
     return max(contours, key=score)
 
 
-def segment_fruit(img_bgr: np.ndarray, use_grabcut: bool = True) -> dict:
+def segment_fruit(img_bgr: np.ndarray, method: str = "rembg", use_grabcut: bool = True) -> dict:
     """
     Segmenta la fruta principal de una imagen BGR (formato de OpenCV).
+
+    method = "rembg"   → U²-Net preentrenado (recomendado). En las fotos propias (fruta
+                         sobre mesa de madera) acertó 10/10, mientras que el método clásico
+                         falló 9/10 porque la madera es tan saturada como la fruta.
+    method = "classic" → Otsu (saturación / distancia al fondo) + GrabCut. Se usa
+                         automáticamente si rembg no está instalado.
 
     Devuelve un diccionario con:
       - mask:     máscara binaria uint8 (255 = fruta), mismo tamaño que la imagen original
@@ -155,6 +163,15 @@ def segment_fruit(img_bgr: np.ndarray, use_grabcut: bool = True) -> dict:
     H, W = img_bgr.shape[:2]
     small, scale = _resize_max(img_bgr)
     h, w = small.shape[:2]
+
+    if method == "rembg":
+        try:
+            mask = _clean(_mask_rembg(small))
+            contour = _main_contour(mask)
+            if contour is not None:
+                return _result_from_contour(contour, scale, H, W)
+        except ImportError:
+            pass  # rembg no instalado → seguimos con el método clásico
 
     # Probamos las dos máscaras iniciales y nos quedamos con la de forma más "de fruta"
     candidates = [_clean(_mask_saturation(small)), _clean(_mask_background_distance(small))]
@@ -184,12 +201,14 @@ def segment_fruit(img_bgr: np.ndarray, use_grabcut: bool = True) -> dict:
     if contour is None:
         return {"mask": np.zeros((H, W), np.uint8), "contour": None, "bbox": None,
                 "area": 0.0, "d_eq": 0.0, "d_norm": 0.0, "ok": False}
+    return _result_from_contour(contour, scale, H, W)
 
-    # Llevamos el contorno al tamaño original
+
+def _result_from_contour(contour, scale: float, H: int, W: int) -> dict:
+    """Lleva el contorno al tamaño original y calcula máscara, área y diámetro normalizado."""
     contour_full = (contour.astype(np.float32) / scale).astype(np.int32)
     mask_full = np.zeros((H, W), np.uint8)
     cv2.drawContours(mask_full, [contour_full], -1, 255, thickness=cv2.FILLED)
-
     area = float(cv2.contourArea(contour_full))
     d_eq = float(np.sqrt(4.0 * area / np.pi))
     return {
