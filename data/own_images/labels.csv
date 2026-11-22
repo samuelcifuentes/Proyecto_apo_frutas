@@ -1,0 +1,7 @@
+filename,fruit,quality,size,source,annotator
+data/own_images/manzana_samuelc_01.jpg,apple,regular,,own,samuelc
+data/own_images/manzana_samuelc_02.jpg,apple,regular,,own,samuelc
+data/own_images/naranja_samuelc_01.jpg,orange,regular,,own,samuelc
+data/own_images/naranja_samuelc_02.jpg,orange,good,,own,samuelc
+data/own_images/banano_samuelc_01.jpg,banana,bad,,own,samuelc
+data/own_images/banano_samuelc_02.jpg,banana,regular,,own,samuelc

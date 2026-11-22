@@ -22,8 +22,8 @@ Salidas
 Decisiones (justificadas en el EDA)
   * Balanceo: máximo MAX_PER_CLASS imágenes por (fruta, calidad). Granada buena tenía
     5.940 imágenes (≈5,5× la clase más pequeña) → submuestreo aleatorio.
-  * División estratificada 70/15/15 por (fruta, calidad): cada subconjunto mantiene
-    las mismas proporciones de clases.
+  * División estratificada 70/15/15 por (fruta, calidad), estable (por hash de la ruta):
+    agregar imágenes nuevas no reordena las que ya estaban.
   * Redimensionamiento con "letterbox": se escala el lado mayor a 128 px y se rellena
     con negro, para NO deformar la fruta (la forma importa para la calidad y el tamaño).
   * Normalización z-score por canal: x' = (x/255 − μ) / σ, con μ y σ de train
@@ -40,7 +40,6 @@ from pathlib import Path
 import cv2
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
 
 RAW = Path("data/raw")
 LABELS_CSV = Path("data/own_images/labels.csv")
@@ -97,20 +96,36 @@ def balance(df: pd.DataFrame) -> pd.DataFrame:
               .sort_values("path").reset_index(drop=True))
 
 
+def _hash01(path: str) -> float:
+    """Número pseudoaleatorio en [0, 1) que depende SOLO de la ruta de la imagen."""
+    return int(hashlib.md5(f"{SEED}:{path}".encode()).hexdigest()[:8], 16) / 16**8
+
+
 def split(df: pd.DataFrame) -> pd.DataFrame:
-    """División estratificada train/val/test por (fruta, calidad)."""
-    strata = df["fruit"] + "_" + df["quality"]
-    train, rest = train_test_split(df, test_size=1 - SPLIT_FRACS[0],
-                                   stratify=strata, random_state=SEED)
-    rel_test = SPLIT_FRACS[2] / (SPLIT_FRACS[1] + SPLIT_FRACS[2])
-    val, test = train_test_split(rest, test_size=rel_test,
-                                 stratify=rest["fruit"] + "_" + rest["quality"],
-                                 random_state=SEED)
+    """
+    División train/val/test estratificada por (fruta, calidad) y ESTABLE.
+
+    Dentro de cada grupo (fruta, calidad) ordenamos las imágenes por un hash de su ruta y
+    asignamos el primer 70 % a train, el siguiente 15 % a val y el resto a test.
+      * Estratificada: cada grupo se reparte en las mismas proporciones.
+      * Estable: agregar fotos nuevas (o etiquetas "regular") NO cambia el split de las
+        imágenes que ya estaban; solo se mueven unas pocas en el borde de cada grupo.
+      * Funciona con grupos pequeños (p. ej. 2 fotos propias), donde train_test_split falla.
+    En grupos de 1–2 imágenes van todas a train.
+    """
     df = df.copy()
-    df.loc[train.index, "split"] = "train"
-    df.loc[val.index, "split"] = "val"
-    df.loc[test.index, "split"] = "test"
-    return df
+    df["_h"] = df["path"].map(_hash01)
+    df["split"] = "train"
+    for _, g in df.groupby(["fruit", "quality"]):
+        idx = g.sort_values("_h").index
+        n = len(idx)
+        if n < 3:
+            continue
+        n_train = round(n * SPLIT_FRACS[0])
+        n_val = max(1, round(n * SPLIT_FRACS[1]))
+        df.loc[idx[n_train:n_train + n_val], "split"] = "val"
+        df.loc[idx[n_train + n_val:], "split"] = "test"
+    return df.drop(columns="_h")
 
 
 # ---------------------------------------------------------------------------
