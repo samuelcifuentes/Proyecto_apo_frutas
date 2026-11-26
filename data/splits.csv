@@ -1,12 +1,12 @@
 path,fruit,quality,source,group,split,processed_path
 data/interim/mixed_crops/guava/IMG20200729173251_c1.jpg,guava,regular,mixed,data/interim/mixed_crops/guava/IMG20200729173251_c1.jpg,train,data/processed/images/train/regular/guava_5816289475cb.jpg
 data/interim/mixed_crops/guava/IMG20200729173330_c0.jpg,guava,regular,mixed,data/interim/mixed_crops/guava/IMG20200729173330_c0.jpg,train,data/processed/images/train/regular/guava_67f202fd72ac.jpg
-data/interim/mixed_crops/orange/IMG20200728131019_c1.jpg,orange,regular,mixed,data/interim/mixed_crops/orange/IMG20200728131019_c1.jpg,train,data/processed/images/train/regular/orange_e20f80be8dc3.jpg
-data/interim/mixed_crops/pomegranate/IMG20200728124904_c5.jpg,pomegranate,regular,mixed,data/interim/mixed_crops/pomegranate/IMG20200728124904_c5.jpg,val,data/processed/images/val/regular/pomegranate_06d532711a49.jpg
+data/interim/mixed_crops/orange/IMG20200728131019_c1.jpg,orange,good,mixed,data/interim/mixed_crops/orange/IMG20200728131019_c1.jpg,train,data/processed/images/train/good/orange_e20f80be8dc3.jpg
+data/interim/mixed_crops/pomegranate/IMG20200728124904_c5.jpg,pomegranate,good,mixed,data/interim/mixed_crops/pomegranate/IMG20200728124904_c5.jpg,val,data/processed/images/val/good/pomegranate_06d532711a49.jpg
 data/own_images/banano_samuelc_01.jpg,banana,bad,own,data/own_images/banano_samuelc_01.jpg,train,data/processed/images/train/bad/banana_d5274cb18959.jpg
 data/own_images/banano_samuelc_02.jpg,banana,regular,own,data/own_images/banano_samuelc_02.jpg,train,data/processed/images/train/regular/banana_488dced67a92.jpg
 data/own_images/banano_samuell_01.jpeg,banana,regular,own,data/own_images/banano_samuell_01.jpeg,val,data/processed/images/val/regular/banana_de9beb8af4f9.jpg
-data/own_images/banano_samuell_02.jpeg,banana,regular,own,data/own_images/banano_samuell_02.jpeg,train,data/processed/images/train/regular/banana_bdda0a2e2ad6.jpg
+data/own_images/banano_samuell_02.jpeg,banana,good,own,data/own_images/banano_samuell_02.jpeg,train,data/processed/images/train/good/banana_bdda0a2e2ad6.jpg
 data/own_images/guayaba_samuelc_01.jpg,guava,regular,own,data/own_images/guayaba_samuelc_01.jpg,train,data/processed/images/train/regular/guava_3221853c3c69.jpg
 data/own_images/guayaba_samuelc_02.jpg,guava,regular,own,data/own_images/guayaba_samuelc_01.jpg,train,data/processed/images/train/regular/guava_4546a7e24f69.jpg
 data/own_images/guayaba_samuell_01.jpeg,guava,regular,own,data/own_images/guayaba_samuell_01.jpeg,train,data/processed/images/train/regular/guava_5503e8e57040.jpg
@@ -22,7 +22,7 @@ data/own_images/manzana_samuell_02.jpeg,apple,good,own,data/own_images/manzana_s
 data/own_images/naranja_samuelc_01.jpg,orange,regular,own,data/own_images/naranja_samuelc_01.jpg,val,data/processed/images/val/regular/orange_548f5dafeed8.jpg
 data/own_images/naranja_samuelc_02.jpg,orange,good,own,data/own_images/naranja_samuelc_01.jpg,val,data/processed/images/val/good/orange_de436900429c.jpg
 data/own_images/naranja_samuell_01.jpeg,orange,regular,own,data/own_images/naranja_samuell_01.jpeg,test,data/processed/images/test/regular/orange_fc0381f4cd79.jpg
-data/own_images/naranja_samuell_02.jpeg,orange,regular,own,data/own_images/naranja_samuell_02.jpeg,val,data/processed/images/val/regular/orange_8fd165d9fb1f.jpg
+data/own_images/naranja_samuell_02.jpeg,orange,good,own,data/own_images/naranja_samuell_02.jpeg,val,data/processed/images/val/good/orange_8fd165d9fb1f.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175856.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175856.jpg,test,data/processed/images/test/bad/apple_b1ec2f54cd02.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175907.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175856.jpg,test,data/processed/images/test/bad/apple_53c056100d96.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175908.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG20200728175856.jpg,test,data/processed/images/test/bad/apple_82589a9a5c7f.jpg
@@ -281,7 +281,7 @@ data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175448.jpg,apple,bad,kaggle,d
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175448_1.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175447.jpg,train,data/processed/images/train/bad/apple_c3a86ed32656.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175452.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175452.jpg,train,data/processed/images/train/bad/apple_34efe3eaf7ac.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175452_1.jpg,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175452.jpg,train,data/processed/images/train/bad/apple_7628ff11d9be.jpg
-data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175532.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175532.jpg,train,data/processed/images/train/regular/apple_0883ca08fa62.jpg
+data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175532.jpg,apple,bad,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175532.jpg,train,data/processed/images/train/bad/apple_0883ca08fa62.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,train,data/processed/images/train/regular/apple_356568879ee3.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175535.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,train,data/processed/images/train/regular/apple_0e49656944e3.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175536.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,train,data/processed/images/train/regular/apple_3d1bc3b66adc.jpg
@@ -301,7 +301,7 @@ data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175549.jpg,apple,regular,rela
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175549_1.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,train,data/processed/images/train/regular/apple_1e3095c78d43.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175550.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175534.jpg,train,data/processed/images/train/regular/apple_ecfe69780abd.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/regular/apple_1099dae922ac.jpg
-data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175632.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/regular/apple_364f5f16f0c8.jpg
+data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175632.jpg,apple,bad,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/bad/apple_364f5f16f0c8.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175632_1.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/regular/apple_24d38c079e28.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175633.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/regular/apple_d1d6e635a565.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175634.jpg,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_20190824_175631.jpg,train,data/processed/images/train/regular/apple_e1304e6645b2.jpg
@@ -1060,7 +1060,7 @@ data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8132.JPG,apple,bad,kaggle,data/raw/Bad
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8133.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8131.JPG,train,data/processed/images/train/bad/apple_81ca0adbe415.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8134.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8131.JPG,train,data/processed/images/train/bad/apple_8a818765e521.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,test,data/processed/images/test/regular/apple_916df78ac020.jpg
-data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8136.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,test,data/processed/images/test/regular/apple_cf767db96c14.jpg
+data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8136.JPG,apple,bad,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,test,data/processed/images/test/bad/apple_cf767db96c14.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8137.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,test,data/processed/images/test/regular/apple_69d5e5770137.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8138.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8135.JPG,test,data/processed/images/test/regular/apple_8f0914c156fb.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8139.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8139.JPG,train,data/processed/images/train/bad/apple_6d825bfc3c8d.jpg
@@ -1078,11 +1078,11 @@ data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8150.JPG,apple,bad,kaggle,data/raw/Bad
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/bad/apple_dc96ed4084ce.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8152.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/bad/apple_0efcc3a6b729.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8153.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/bad/apple_7ec2fef9c4da.jpg
-data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8154.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/regular/apple_a110b640884f.jpg
+data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8154.JPG,apple,bad,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/bad/apple_a110b640884f.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8155.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8151.JPG,train,data/processed/images/train/bad/apple_5a0d8731df1e.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,train,data/processed/images/train/regular/apple_ef89661a3720.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8157.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,train,data/processed/images/train/regular/apple_ce09f2fa4a8a.jpg
-data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8158.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,train,data/processed/images/train/regular/apple_322c27818d75.jpg
+data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8158.JPG,apple,bad,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,train,data/processed/images/train/bad/apple_322c27818d75.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8159.JPG,apple,regular,relabel,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8156.JPG,train,data/processed/images/train/regular/apple_484a5d1048b4.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8160.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8160.JPG,train,data/processed/images/train/bad/apple_10fc4d8ce433.jpg
 data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8161.JPG,apple,bad,kaggle,data/raw/Bad Quality_Fruits/Apple_Bad/IMG_8160.JPG,train,data/processed/images/train/bad/apple_1d9b72651a47.jpg
@@ -1854,11 +1854,11 @@ data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184120_1.jpg,banana,bad,kagg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184121.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184121.jpg,train,data/processed/images/train/bad/banana_60264561a38e.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184122.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184121.jpg,train,data/processed/images/train/bad/banana_d0acf2bdc673.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184123.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184121.jpg,train,data/processed/images/train/bad/banana_125b6a5eb4ab.jpg
-data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,train,data/processed/images/train/regular/banana_e1394f9274c1.jpg
+data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,banana,bad,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,train,data/processed/images/train/bad/banana_e1394f9274c1.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184126.jpg,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,train,data/processed/images/train/regular/banana_3b294d9121c5.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184126_1.jpg,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,train,data/processed/images/train/regular/banana_84942e66b7de.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184127.jpg,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,train,data/processed/images/train/regular/banana_955d1c206b24.jpg
-data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184128.jpg,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184128.jpg,train,data/processed/images/train/regular/banana_8b116947fe49.jpg
+data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184128.jpg,banana,bad,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184128.jpg,train,data/processed/images/train/bad/banana_8b116947fe49.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184129.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184129.jpg,train,data/processed/images/train/bad/banana_258850523add.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184135.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184135.jpg,train,data/processed/images/train/bad/banana_bd3a70ba64de.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184141.jpg,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184141.jpg,val,data/processed/images/val/bad/banana_20e1e98ef3bb.jpg
@@ -2161,9 +2161,9 @@ data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8037.JPG,banana,bad,kaggle,data/raw/B
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8038.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8038.JPG,train,data/processed/images/train/bad/banana_2e269e260f03.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8039.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8038.JPG,train,data/processed/images/train/bad/banana_84de8e7770e3.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8040.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8038.JPG,train,data/processed/images/train/bad/banana_de847dfce92e.jpg
-data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,test,data/processed/images/test/regular/banana_4009827a09b3.jpg
-data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8042.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,test,data/processed/images/test/regular/banana_00f5b2e45f07.jpg
-data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8043.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,test,data/processed/images/test/regular/banana_901b303f7b76.jpg
+data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,val,data/processed/images/val/regular/banana_4009827a09b3.jpg
+data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8042.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,val,data/processed/images/val/regular/banana_00f5b2e45f07.jpg
+data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8043.JPG,banana,regular,relabel,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8041.JPG,val,data/processed/images/val/regular/banana_901b303f7b76.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8044.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8044.JPG,train,data/processed/images/train/bad/banana_3f2f0f7fc95e.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8045.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8045.JPG,train,data/processed/images/train/bad/banana_106ba7233f5e.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8046.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8045.JPG,train,data/processed/images/train/bad/banana_29b9ebe41f9e.jpg
@@ -2252,8 +2252,8 @@ data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8128.JPG,banana,bad,kaggle,data/raw/B
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8129.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8111.JPG,train,data/processed/images/train/bad/banana_c1f1ffcc4573.jpg
 data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8130.JPG,banana,bad,kaggle,data/raw/Bad Quality_Fruits/Banana_Bad/IMG_8111.JPG,train,data/processed/images/train/bad/banana_b216c839d752.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184715.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184715.jpg,test,data/processed/images/test/regular/guava_32ed30e2165f.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184716.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184716.jpg,test,data/processed/images/test/regular/guava_1612e3b7b9d4.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184734.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184734.jpg,train,data/processed/images/train/regular/guava_e1e3617e01e0.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184716.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184716.jpg,test,data/processed/images/test/bad/guava_1612e3b7b9d4.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184734.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184734.jpg,train,data/processed/images/train/bad/guava_e1e3617e01e0.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184737.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184737.jpg,train,data/processed/images/train/regular/guava_e54b9a540395.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184739.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184740.jpg,val,data/processed/images/val/regular/guava_02e6eb3ad01c.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184740.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184740.jpg,val,data/processed/images/val/regular/guava_7e7d3ad6a01d.jpg
@@ -2261,12 +2261,12 @@ data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184742.jpg,guava,regular,relabe
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184743.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184740.jpg,val,data/processed/images/val/regular/guava_5de7051f6439.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184744.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184744.jpg,test,data/processed/images/test/regular/guava_0009ab1da27a.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184754.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184754.jpg,train,data/processed/images/train/regular/guava_94dd2853c541.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184755.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184755.jpg,train,data/processed/images/train/regular/guava_c8d3f34ff3c0.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184755.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184755.jpg,train,data/processed/images/train/bad/guava_c8d3f34ff3c0.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184810.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184810.jpg,test,data/processed/images/test/bad/guava_3add871b54a2.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184833_01.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184833_01.jpg,train,data/processed/images/train/regular/guava_40813333ef39.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184834.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184834.jpg,test,data/processed/images/test/regular/guava_11b6b84f43e5.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184835.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184835.jpg,train,data/processed/images/train/regular/guava_e19a513de960.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184836.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184836.jpg,train,data/processed/images/train/regular/guava_7481960cbea8.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184836.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184836.jpg,val,data/processed/images/val/bad/guava_7481960cbea8.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184837.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184837.jpg,train,data/processed/images/train/regular/guava_de79c2f272c4.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184838.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184838.jpg,train,data/processed/images/train/bad/guava_f8e66926c03f.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184838_01.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184838_01.jpg,train,data/processed/images/train/bad/guava_f4601ed1b672.jpg
@@ -2300,7 +2300,7 @@ data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184935.jpg,guava,regular,relabe
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184936.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184936.jpg,train,data/processed/images/train/bad/guava_49f79d3cc924.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,train,data/processed/images/train/regular/guava_46634859343a.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184938.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184938.jpg,train,data/processed/images/train/regular/guava_bd55b156e7d4.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184939.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184939.jpg,train,data/processed/images/train/regular/guava_9a1873c8f2b5.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184939.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184939.jpg,train,data/processed/images/train/bad/guava_9a1873c8f2b5.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184940.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,train,data/processed/images/train/bad/guava_228933bd9796.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184940_01.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,train,data/processed/images/train/bad/guava_2ae48d67d81e.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184941.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,train,data/processed/images/train/bad/guava_671736d4b209.jpg
@@ -2639,7 +2639,7 @@ data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080848_1.jpg,guava,regular,re
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080849.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_9f434a6b07f5.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080851.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_f9fbca6dc490.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080851_1.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_5045ef599fb4.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080852.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/regular/guava_3e21e1c9e3c3.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080852.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_3e21e1c9e3c3.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080852_1.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/regular/guava_b958631e664c.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080853.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_6ed03dee44a4.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080853_1.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080913.jpg,train,data/processed/images/train/bad/guava_413edc144fc2.jpg
@@ -2697,7 +2697,7 @@ data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,guava,bad,kaggle,d
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080939.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,train,data/processed/images/train/bad/guava_01dfc263405b.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080940.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,train,data/processed/images/train/bad/guava_90ea07bb7e6c.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080940_1.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,train,data/processed/images/train/bad/guava_2a0a0bc717eb.jpg
-data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080941.jpg,guava,regular,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,train,data/processed/images/train/regular/guava_419bedd8d434.jpg
+data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080941.jpg,guava,bad,relabel,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080938.jpg,train,data/processed/images/train/bad/guava_419bedd8d434.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080942.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080942.jpg,train,data/processed/images/train/bad/guava_838d232972b9.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080942_1.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080942_1.jpg,test,data/processed/images/test/bad/guava_32ca11d2c1b9.jpg
 data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080943.jpg,guava,bad,kaggle,data/raw/Bad Quality_Fruits/Guava_Bad/IMG_20190822_080943.jpg,test,data/processed/images/test/bad/guava_7c6c0418d6a1.jpg
@@ -3447,13 +3447,13 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172353.jpg,lime,bad,kaggle,data/
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172353_01.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172353.jpg,train,data/processed/images/train/bad/lime_2fa042aa2913.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172354.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172354.jpg,train,data/processed/images/train/bad/lime_22674030548e.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,train,data/processed/images/train/bad/lime_30de37184c02.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172356.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,train,data/processed/images/train/regular/lime_e8e7c67dc177.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172356.jpg,lime,good,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,train,data/processed/images/train/good/lime_e8e7c67dc177.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172359.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,train,data/processed/images/train/bad/lime_c66b665feb69.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172400.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172355.jpg,train,data/processed/images/train/bad/lime_2bb433b824fd.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172400_01.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172400_01.jpg,train,data/processed/images/train/bad/lime_eac44532bc48.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172401.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172400_01.jpg,train,data/processed/images/train/bad/lime_49e2d01de5a4.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172404.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172404.jpg,train,data/processed/images/train/regular/lime_4083f391fef9.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172405.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,train,data/processed/images/train/regular/lime_a6f2ba21b757.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172404.jpg,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172404.jpg,train,data/processed/images/train/bad/lime_4083f391fef9.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172405.jpg,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,train,data/processed/images/train/bad/lime_a6f2ba21b757.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,train,data/processed/images/train/bad/lime_5e0af89cf02b.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406_01.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,train,data/processed/images/train/bad/lime_8af34595963d.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172407.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG20200729172406.jpg,train,data/processed/images/train/bad/lime_854d78b0c0d5.jpg
@@ -3532,13 +3532,13 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085647.jpg,lime,bad,kaggle,dat
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085648.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085646.jpg,train,data/processed/images/train/bad/lime_cfd4d0ec7b79.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085648_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085646.jpg,train,data/processed/images/train/bad/lime_c7e3e4a5ad8d.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085649.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085646.jpg,train,data/processed/images/train/bad/lime_3c12e2087bf9.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_a7b1abbad4b4.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_e710094a9c9a.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085655.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_f2e2f9966df0.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085700.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_f8032e70e9d0.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085700_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_4cf8c4b712b2.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085701.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_9af59667803e.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085701_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,val,data/processed/images/val/bad/lime_9777df05b2e7.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_a7b1abbad4b4.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_e710094a9c9a.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085655.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_f2e2f9966df0.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085700.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_f8032e70e9d0.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085700_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_4cf8c4b712b2.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085701.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_9af59667803e.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085701_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085654.jpg,train,data/processed/images/train/bad/lime_9777df05b2e7.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085710.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085710.jpg,train,data/processed/images/train/bad/lime_dff2f0cf761b.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085711.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085710.jpg,train,data/processed/images/train/bad/lime_84125c7f554b.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085711_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190820_085710.jpg,train,data/processed/images/train/bad/lime_82d505f99f4b.jpg
@@ -3642,7 +3642,7 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183536_1.jpg,lime,bad,kaggle,d
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183537.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183534.jpg,train,data/processed/images/train/bad/lime_1a251fb6fa15.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/bad/lime_ee27ec155696.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/bad/lime_24a7e0516fd3.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183548.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/regular/lime_b705f790ee0f.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183548.jpg,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/bad/lime_b705f790ee0f.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183549.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/bad/lime_b4bb2898d045.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183549_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183544.jpg,val,data/processed/images/val/bad/lime_aafdc8397429.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183554.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/bad/lime_624226a6fc1e.jpg
@@ -3710,7 +3710,7 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183650_1.jpg,lime,bad,kaggle,d
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183652.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/regular/lime_616d1ce7f7e8.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183652_1.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/regular/lime_14271d69b54b.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183653.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/regular/lime_b966b6935d78.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183654.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/regular/lime_26012a264e98.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183654.jpg,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/bad/lime_26012a264e98.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183654_1.jpg,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/regular/lime_259b7c03ed25.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183655.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/bad/lime_62c3d74be65f.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183655_1.jpg,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_20190923_183713.jpg,test,data/processed/images/test/bad/lime_9bf27ee9e350.jpg
@@ -3967,7 +3967,7 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7038.JPG,lime,bad,kaggle,data/raw/Bad Q
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7128.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7128.JPG,val,data/processed/images/val/bad/lime_4f8762e9e999.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7185.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7185.JPG,train,data/processed/images/train/bad/lime_e2b63c7b9753.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7186.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7186.JPG,val,data/processed/images/val/regular/lime_8d047d5665be.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7187.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7186.JPG,val,data/processed/images/val/regular/lime_99224b3a048d.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7187.JPG,lime,good,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7186.JPG,val,data/processed/images/val/good/lime_99224b3a048d.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7188.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7188.JPG,train,data/processed/images/train/bad/lime_a9d682f61a2e.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7189.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7188.JPG,train,data/processed/images/train/bad/lime_8c5fa25b51eb.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7190.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7188.JPG,train,data/processed/images/train/bad/lime_feb67d359ee5.jpg
@@ -4011,7 +4011,7 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7227.JPG,lime,bad,kaggle,data/raw/Bad Q
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7228.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_dae7f816692a.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7229.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_a40112324717.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7230.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_9b5d47bf4ba8.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7231.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/regular/lime_2c0383684f81.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7231.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_2c0383684f81.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7232.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_d4f5b14b688d.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7233.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/bad/lime_ff30dbf22796.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7234.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7226.JPG,val,data/processed/images/val/regular/lime_97190a60eb00.jpg
@@ -4028,9 +4028,9 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7244.JPG,lime,regular,relabel,data/raw/
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7245.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7240.JPG,train,data/processed/images/train/regular/lime_7b4247f8f4e3.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7246.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7246.JPG,val,data/processed/images/val/regular/lime_756ae150a5ac.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7247.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7246.JPG,val,data/processed/images/val/regular/lime_a2b3b77a559f.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7248.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7246.JPG,val,data/processed/images/val/regular/lime_ddd3c4e9f490.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,test,data/processed/images/test/regular/lime_ad94bc1b08c6.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7250.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,test,data/processed/images/test/bad/lime_2d5aeab79d57.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7248.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7246.JPG,val,data/processed/images/val/bad/lime_ddd3c4e9f490.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,val,data/processed/images/val/bad/lime_ad94bc1b08c6.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7250.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7249.JPG,val,data/processed/images/val/bad/lime_2d5aeab79d57.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_a934bf6324f0.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7257.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_618ec75f7382.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7258.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_17e87e1471d5.jpg
@@ -4075,13 +4075,13 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7296.JPG,lime,regular,relabel,data/raw/
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7297.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_fc4b7509d844.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7298.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_ae9c8b47caa3.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7299.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7256.JPG,train,data/processed/images/train/regular/lime_eb9be438eb91.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7300.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7300.JPG,train,data/processed/images/train/regular/lime_2c64dbaa5f16.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7300.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7300.JPG,train,data/processed/images/train/bad/lime_2c64dbaa5f16.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7301.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7300.JPG,train,data/processed/images/train/regular/lime_da7a1408e06b.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7302.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7302.JPG,train,data/processed/images/train/bad/lime_c380dbec5e91.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7303.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7302.JPG,train,data/processed/images/train/regular/lime_4ee94b783101.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7304.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7302.JPG,train,data/processed/images/train/bad/lime_20be177768bd.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7305.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7302.JPG,train,data/processed/images/train/regular/lime_70e2abb4c63e.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,train,data/processed/images/train/regular/lime_68a1844273ed.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,train,data/processed/images/train/bad/lime_68a1844273ed.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7307.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,train,data/processed/images/train/regular/lime_393ef7ae11aa.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7308.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7306.JPG,train,data/processed/images/train/regular/lime_35e1599f19cf.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/regular/lime_b9d50c772d78.jpg
@@ -4094,14 +4094,14 @@ data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7315.JPG,lime,regular,relabel,data/raw/
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7316.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/regular/lime_8c14d9d216a8.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7317.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/bad/lime_e3a9f3a50507.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7318.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/regular/lime_b5e951d63a9f.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7319.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/regular/lime_39e94687a7ed.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7319.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7309.JPG,train,data/processed/images/train/bad/lime_39e94687a7ed.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,lime,bad,kaggle,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/bad/lime_379d2a3882aa.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7321.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_f486f44cb3f2.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7322.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_6573f5641b81.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7323.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_f7303a8bfc79.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7324.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_6a1c257b08d4.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7325.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_e4bee056950b.jpg
-data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7326.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_4619b04d821e.jpg
+data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7326.JPG,lime,bad,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/bad/lime_4619b04d821e.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7327.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_4e411279fe69.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7328.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_3b14f59c5d59.jpg
 data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7329.JPG,lime,regular,relabel,data/raw/Bad Quality_Fruits/Lime_Bad/IMG_7320.JPG,train,data/processed/images/train/regular/lime_2da8347a59cf.jpg
@@ -4495,7 +4495,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185911.jpg,orange,regular,rela
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185911_01.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/bad/orange_3a67964a27b4.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185912.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/regular/orange_f83bb71943c2.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185913.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/bad/orange_25a800a0033e.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185913_01.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/regular/orange_3b5da1d961e9.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185913_01.jpg,orange,bad,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/bad/orange_3b5da1d961e9.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/regular/orange_c3a42445e192.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/regular/orange_6830e8363d93.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185916.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728185915_01.jpg,train,data/processed/images/train/regular/orange_3b77b5dfbd0e.jpg
@@ -4560,7 +4560,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190030_01.jpg,orange,bad,kaggl
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190031.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190030.jpg,train,data/processed/images/train/bad/orange_ea26be176ac6.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190032.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190032.jpg,test,data/processed/images/test/bad/orange_524aa7826964.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190032_01.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190032_01.jpg,val,data/processed/images/val/bad/orange_d1759dee362f.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190033.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190033.jpg,val,data/processed/images/val/regular/orange_e602b485325b.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190033.jpg,orange,good,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190033.jpg,val,data/processed/images/val/good/orange_e602b485325b.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190034.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190033.jpg,val,data/processed/images/val/bad/orange_a466fc105f19.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190035.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190035.jpg,train,data/processed/images/train/bad/orange_bfe7f223af8f.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190035_01.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG20200728190035_01.jpg,val,data/processed/images/val/bad/orange_eff6be6e7370.jpg
@@ -4638,7 +4638,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174824_1.jpg,orange,bad,kagg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174829.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/bad/orange_a1247c4e8aa7.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174830.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/regular/orange_efb7e3a5512c.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174831.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/bad/orange_3e5f6ddd036e.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/regular/orange_e8a7d32798b4.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,orange,good,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/good/orange_e8a7d32798b4.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832_1.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/regular/orange_331ce196aac2.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174833.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/bad/orange_e7f234c1e8c1.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174833_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190824_174832.jpg,val,data/processed/images/val/bad/orange_d91013159b28.jpg
@@ -5148,7 +5148,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181622.jpg,orange,bad,kaggle
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181623.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181614.jpg,train,data/processed/images/train/bad/orange_7e9844018ece.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181623_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181614.jpg,train,data/processed/images/train/bad/orange_fb18d7df3c94.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181624.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181614.jpg,train,data/processed/images/train/regular/orange_a918e9617312.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,train,data/processed/images/train/regular/orange_8a10d5561e79.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,orange,bad,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,train,data/processed/images/train/bad/orange_8a10d5561e79.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,train,data/processed/images/train/bad/orange_ed1b65bf3534.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181626.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,train,data/processed/images/train/regular/orange_752b9543d484.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181627.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181625.jpg,train,data/processed/images/train/bad/orange_67749770d14c.jpg
@@ -5169,7 +5169,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181648.jpg,orange,bad,kaggle
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181648_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_4b96f4b1cf6d.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181649.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_f5f9c4cedb7a.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181650.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_ab98e4d1801c.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181650_1.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/regular/orange_c7735129036c.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181650_1.jpg,orange,bad,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_c7735129036c.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181651.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_935e492c7efa.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181652.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181636.jpg,train,data/processed/images/train/bad/orange_00abd5356920.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181653.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_181653.jpg,train,data/processed/images/train/bad/orange_fcf887fcd468.jpg
@@ -5407,7 +5407,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182129.jpg,orange,bad,kaggle
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182129_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_2a8f2acee523.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182130.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_64cb2596c594.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182131.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_f96efedd044a.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182132.jpg,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/regular/orange_82e2294d5dde.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182132.jpg,orange,good,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/good/orange_82e2294d5dde.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182133.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_c6f844236205.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182133_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_d7f67c470b04.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182141.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182212.jpg,test,data/processed/images/test/bad/orange_9443160a114c.jpg
@@ -5503,7 +5503,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182256.jpg,orange,bad,kaggle
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182256_1.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182250.jpg,train,data/processed/images/train/bad/orange_ea65d33a12c6.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182257.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182250.jpg,train,data/processed/images/train/bad/orange_a88bccab2c7a.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182258.jpg,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_20190923_182250.jpg,train,data/processed/images/train/bad/orange_c1c423bd813f.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2359.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2359.JPG,train,data/processed/images/train/regular/orange_9fa040284f93.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2359.JPG,orange,good,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2359.JPG,train,data/processed/images/train/good/orange_9fa040284f93.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2360.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2360.JPG,test,data/processed/images/test/regular/orange_7b05be4caa65.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2361.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2361.JPG,test,data/processed/images/test/regular/orange_25214c89eaa4.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2366.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2366.JPG,test,data/processed/images/test/bad/orange_8fcd6a5ec260.jpg
@@ -5544,7 +5544,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2400.JPG,orange,bad,kaggle,data/raw/B
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2401.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_65777b928dc3.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2402.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_1b567a6a2b56.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2403.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_69eab9c2cda5.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2404.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2404.JPG,train,data/processed/images/train/bad/orange_73f1696c5ec2.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2404.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2404.JPG,val,data/processed/images/val/bad/orange_73f1696c5ec2.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2405.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_ea2ec06a24a9.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2406.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_ba2c33cbac4e.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2407.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2396.JPG,train,data/processed/images/train/bad/orange_755aae822825.jpg
@@ -5578,7 +5578,7 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2481.JPG,orange,bad,kaggle,data/raw/B
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2482.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2482.JPG,train,data/processed/images/train/bad/orange_6e60a52a1843.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2483.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2482.JPG,train,data/processed/images/train/bad/orange_bce1c696221e.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2484.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2482.JPG,train,data/processed/images/train/bad/orange_9f50684b4808.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2485.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2485.JPG,train,data/processed/images/train/bad/orange_8b67ca177b7d.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2485.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2485.JPG,val,data/processed/images/val/bad/orange_8b67ca177b7d.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2486.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2486.JPG,train,data/processed/images/train/bad/orange_fd880c8a3880.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2487.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2487.JPG,train,data/processed/images/train/bad/orange_0aa474c59434.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2488.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2488.JPG,test,data/processed/images/test/bad/orange_e766a90435a6.jpg
@@ -5604,8 +5604,8 @@ data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2507.JPG,orange,bad,kaggle,data/raw/B
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2508.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2506.JPG,train,data/processed/images/train/bad/orange_00325816bee6.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2509.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2506.JPG,train,data/processed/images/train/bad/orange_d86d76aa4bee.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2510.JPG,orange,bad,kaggle,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2510.JPG,train,data/processed/images/train/bad/orange_0f329351c9ec.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2511.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2511.JPG,test,data/processed/images/test/regular/orange_5dcdd244d773.jpg
-data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2512.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2512.JPG,train,data/processed/images/train/regular/orange_7bb450706705.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2511.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2511.JPG,val,data/processed/images/val/regular/orange_5dcdd244d773.jpg
+data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2512.JPG,orange,bad,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2512.JPG,train,data/processed/images/train/bad/orange_7bb450706705.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2513.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2513.JPG,train,data/processed/images/train/regular/orange_77728a0c8b90.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2514.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2514.JPG,val,data/processed/images/val/regular/orange_0d3fbb84c64f.jpg
 data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2515.JPG,orange,regular,relabel,data/raw/Bad Quality_Fruits/Orange_Bad/IMG_2515.JPG,train,data/processed/images/train/regular/orange_3f5574ebaf6f.jpg
@@ -5708,7 +5708,7 @@ data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182629.jpg,pomegranate,ba
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182629_01.jpg,pomegranate,bad,kaggle,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182630.jpg,train,data/processed/images/train/bad/pomegranate_95ccef173c61.jpg
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182630.jpg,pomegranate,bad,kaggle,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182630.jpg,train,data/processed/images/train/bad/pomegranate_0eed9ce17d23.jpg
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182631.jpg,pomegranate,regular,relabel,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182630.jpg,train,data/processed/images/train/regular/pomegranate_cd2241450ac1.jpg
-data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182632.jpg,pomegranate,regular,relabel,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182632.jpg,train,data/processed/images/train/regular/pomegranate_50a8ea84d171.jpg
+data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182632.jpg,pomegranate,bad,relabel,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182632.jpg,train,data/processed/images/train/bad/pomegranate_50a8ea84d171.jpg
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182633.jpg,pomegranate,bad,kaggle,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182632.jpg,train,data/processed/images/train/bad/pomegranate_39189732c4a6.jpg
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182633_01.jpg,pomegranate,regular,relabel,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182633_01.jpg,train,data/processed/images/train/regular/pomegranate_c2300db683c7.jpg
 data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182635.jpg,pomegranate,bad,kaggle,data/raw/Bad Quality_Fruits/Pomegranate_Bad/IMG20200728182635.jpg,train,data/processed/images/train/bad/pomegranate_46d791533352.jpg
@@ -11955,7 +11955,6 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152600.jpg,orange,good,kag
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152602.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152602.jpg,val,data/processed/images/val/good/orange_6819477fb14e.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152604.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_6111071f38ec.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152605.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_307572c4a181.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152613.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_635516b2241b.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_9b1eb97a8447.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152617.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_f3d3e336f4bb.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152619.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152614.jpg,train,data/processed/images/train/good/orange_6f6b815ebe0f.jpg
@@ -12025,7 +12024,6 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152849_1.jpg,orange,good,k
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152850.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_73dade57c576.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152853.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_08cb6d0a5bbf.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152854.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_8ae62a20896a.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152854_1.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_1401eb914d54.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152855.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_602976418b06.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152855_1.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_990c99bc154a.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152858.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_152819.jpg,train,data/processed/images/train/good/orange_c997aee26eb0.jpg
@@ -12232,7 +12230,6 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153621.jpg,orange,good,kag
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153621_1.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153615.jpg,train,data/processed/images/train/good/orange_3be89ac93368.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153622.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153615.jpg,train,data/processed/images/train/good/orange_e3cf559eb0f8.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153623.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153615.jpg,train,data/processed/images/train/good/orange_b14fc7ad1309.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153623_1.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153615.jpg,train,data/processed/images/train/good/orange_ca93db45e42f.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153624.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153615.jpg,train,data/processed/images/train/good/orange_fd4dd134db79.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153625.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153625.jpg,train,data/processed/images/train/good/orange_d990d48b4e9d.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153626.jpg,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_20190924_153625.jpg,train,data/processed/images/train/good/orange_6a9512ef9e5d.jpg
@@ -12306,7 +12303,6 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_2119.JPG,orange,good,kaggle,data/ra
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2120.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2117.JPG,train,data/processed/images/train/good/orange_7271dfd34e35.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2121.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2121.JPG,val,data/processed/images/val/good/orange_bb5bcd0f29a5.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2122.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2122.JPG,test,data/processed/images/test/good/orange_d3f007c1b628.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_2123.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2123.JPG,train,data/processed/images/train/good/orange_0e55fea915be.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2126.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2126.JPG,test,data/processed/images/test/good/orange_bb242b1e4600.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2128.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2128.JPG,train,data/processed/images/train/good/orange_24e9452c6d58.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2129.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2129.JPG,train,data/processed/images/train/good/orange_fde928ca5b55.jpg
@@ -12450,9 +12446,8 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_2567.JPG,orange,good,kaggle,data/ra
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2568.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2568.JPG,train,data/processed/images/train/good/orange_728e8fd66457.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2569.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2569.JPG,train,data/processed/images/train/good/orange_8a1ac78ff709.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2571.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2571.JPG,test,data/processed/images/test/good/orange_016cf697c1ea.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_2572.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2572.JPG,val,data/processed/images/val/good/orange_f9519c61a6b4.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2573.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2573.JPG,test,data/processed/images/test/good/orange_13c2bff339a3.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_2575.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2575.JPG,train,data/processed/images/train/good/orange_bb633b0b64bd.jpg
+data/raw/Good Quality_Fruits/Orange_Good/IMG_2575.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2569.JPG,train,data/processed/images/train/good/orange_bb633b0b64bd.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2577.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2577.JPG,train,data/processed/images/train/good/orange_acf0da55ba22.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2579.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2579.JPG,val,data/processed/images/val/good/orange_84cbbcba8907.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2580.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2579.JPG,val,data/processed/images/val/good/orange_4976c7c0dac6.jpg
@@ -12515,7 +12510,6 @@ data/raw/Good Quality_Fruits/Orange_Good/IMG_2680.JPG,orange,good,kaggle,data/ra
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2681.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2681.JPG,train,data/processed/images/train/good/orange_4e0c7c56d95c.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2682.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2682.JPG,val,data/processed/images/val/good/orange_c159b1fd5711.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2684.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2684.JPG,train,data/processed/images/train/good/orange_6b98d09290e5.jpg
-data/raw/Good Quality_Fruits/Orange_Good/IMG_2685.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2685.JPG,train,data/processed/images/train/good/orange_e35e7939b3df.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2686.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2686.JPG,train,data/processed/images/train/good/orange_e4ea594574dd.jpg
 data/raw/Good Quality_Fruits/Orange_Good/IMG_2687.JPG,orange,good,kaggle,data/raw/Good Quality_Fruits/Orange_Good/IMG_2686.JPG,train,data/processed/images/train/good/orange_3c32eac1ce9c.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_143522_22896.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_143522_22896.jpg,train,data/processed/images/train/good/pomegranate_dc509f8f527f.jpg
@@ -12665,7 +12659,6 @@ data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144717_23408.jpg,pomegran
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144717_23410.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144717_23410.jpg,val,data/processed/images/val/good/pomegranate_6e172fd1a4d5.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23416.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23416.jpg,train,data/processed/images/train/good/pomegranate_fff5f0d00108.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23417.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23417.jpg,train,data/processed/images/train/good/pomegranate_b77f9de6ceb9.jpg
-data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23418.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23418.jpg,train,data/processed/images/train/good/pomegranate_09e3a67320ab.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23419.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144719_23416.jpg,train,data/processed/images/train/good/pomegranate_d9acfae8f841.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144724_23425.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144724_23425.jpg,train,data/processed/images/train/good/pomegranate_a1dae3205e72.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144759_23430.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_144759_23430.jpg,train,data/processed/images/train/good/pomegranate_993aaec75322.jpg
@@ -12986,7 +12979,7 @@ data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151407_24620.jpg,pomegran
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151407_24621.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151407_24621.jpg,test,data/processed/images/test/good/pomegranate_2bde10b6a788.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151407_24622.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151407_24622.jpg,train,data/processed/images/train/good/pomegranate_8549b6f8f045.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151413_24634.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151413_24634.jpg,train,data/processed/images/train/good/pomegranate_6fe05ff0e988.jpg
-data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151417_24645.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151417_24645.jpg,val,data/processed/images/val/good/pomegranate_3cf8f2ee6eea.jpg
+data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151417_24645.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151417_24645.jpg,train,data/processed/images/train/good/pomegranate_3cf8f2ee6eea.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151423_24648.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151423_24648.jpg,train,data/processed/images/train/good/pomegranate_2278ff592db0.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151428.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151428.jpg,train,data/processed/images/train/good/pomegranate_9441db5587ba.jpg
 data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151428_24654.jpg,pomegranate,good,kaggle,data/raw/Good Quality_Fruits/Pomegranate_Good/20190820_151428_24654.jpg,train,data/processed/images/train/good/pomegranate_0cbf84fa1f81.jpg
