@@ -9,7 +9,7 @@
 | El fondo se correlaciona con la calidad en los datos. Un productor que use otra mesa o cámara podría recibir una evaluación distinta para la misma fruta. | 1.4, trato justo, y 2.5, evaluación de riesgos | El equipo incorporó segmentación y fotografías propias. Para comprobar si persiste el sesgo, se propone fotografiar la misma pieza sobre dos fondos y contar los cambios de clase. |
 | Un diámetro aparente puede influir en el precio aunque cambie al acercar la cámara. | 1.3, honestidad | La guía define el tamaño como relativo al encuadre, fija una distancia de captura de unos 30 cm y establece comparaciones por especie. Para pactar un precio por calibre físico se requiere una medida con escala. |
 
-En `labels.csv`, el valor `samuell_ia` identifica las imágenes del lote de Samuel Lasso cuya calidad se revisó visualmente con asistencia de IA. La validación manual por el equipo está pendiente. Los tamaños de las fotos propias siguen vacíos conforme a la guía del repositorio. La sección 2.3 de la consigna pide al grupo anotar también el tamaño de esas fotos.
+Samuel Lasso revisó a mano 50 imágenes de las seis frutas que se habían etiquetado como *regular* con asistencia de IA. Cada imagen procedía de un grupo de ráfaga distinto. Confirmó 10 como *regulares* y reclasificó 10 como *buenas* y 30 como *malas*. En `labels.csv`, `samuell` identifica las 50 decisiones manuales y `samuell_ia` las etiquetas de su lote que conservan la revisión asistida. Los tamaños de las fotos propias siguen vacíos conforme a la guía del repositorio. La sección 2.3 de la consigna pide al grupo anotar también el tamaño de esas fotos.
 
 ## Matriz de impactos potenciales (PI2)
 
