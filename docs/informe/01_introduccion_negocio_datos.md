@@ -68,8 +68,9 @@ exactitud (*accuracy*) y la matriz de confusión.
    (1.074 fotos con varias frutas).
 2. **Fotografías propias**: fotos de una fruta por imagen sobre mesa, tomadas por el grupo siguiendo
    una guía común (distancia ~30 cm, buena luz, sin manos), etiquetadas con la misma guía. ⟳
-3. **Recortes de *Mixed***: cada fruta de las fotos *Mixed* se recortó automáticamente (2.570 recortes)
-   para ser etiquetada manualmente como buena, regular o mala.
+3. **Recortes de *Mixed*** (2.570, generados automáticamente) e **imágenes re-etiquetadas**: se
+   revisaron imágenes de *Bad* con defectos leves para construir la clase *regular* (327 imágenes en
+   total, sumando fotos propias y recortes). ⟳
 
 ### B. Análisis exploratorio (comprensión de los datos)
 
@@ -127,11 +128,15 @@ pues un limón grande sigue siendo más pequeño que una manzana pequeña.
 **3) Balanceo.** Se limitó cada combinación (fruta, calidad) a 1.200 imágenes mediante submuestreo
 aleatorio; a *granada buena* se le retiraron 4.740 imágenes.
 
-**4) División.** Se usó una división 70/15/15 estratificada por (fruta, calidad): dentro de cada grupo
-las imágenes se ordenan por un hash de su ruta y se asigna el primer 70 % a entrenamiento, el 15 %
-siguiente a validación y el resto a prueba. A diferencia de un muestreo aleatorio, esta división es
-**estable**: agregar imágenes nuevas no cambia el subconjunto de las existentes. Resultado: 9.595
-imágenes de entrenamiento, 2.054 de validación y 2.056 de prueba. ⟳
+**4) División sin fuga de datos.** FruitNet contiene ráfagas: varias fotos consecutivas de la misma
+fruta con un leve cambio de ángulo. Si una foto de la ráfaga queda en entrenamiento y otra en prueba,
+el modelo es evaluado con una fruta que ya vio y las métricas se inflan. Para evitarlo se calculó un
+*hash* perceptual por diferencias (dHash, 64 bits) de cada imagen y se unieron en un mismo grupo las
+fotos consecutivas de una carpeta cuya distancia de Hamming es ≤ 10 bits (entre fotos tomadas al azar
+la distancia típica es de 27 bits). Se obtuvieron 5.079 grupos para 13.719 imágenes. La división
+70/15/15 se hizo **por grupos** y estratificada por (fruta, calidad): todas las fotos de una ráfaga van
+al mismo subconjunto. Resultado: 9.720 imágenes de entrenamiento, 2.051 de validación y 1.948 de
+prueba; la clase *regular* quedó con 251 / 34 / 42. ⟳
 
 **5) Redimensionamiento.** Cada imagen se escaló para que su lado mayor midiera 128 px, rellenando
 con negro hasta 128×128 (*letterbox*), con factor de escala s = 128 / max(alto, ancho). Así no se
@@ -141,7 +146,7 @@ deforma la fruta, cuya forma es relevante para la calidad y el tamaño.
 
   x' = (x/255 − μ_c) / σ_c,    σ_c² = E[x²] − (E[x])²        (3)
 
-con μ = (0,561; 0,538; 0,489) y σ = (0,297; 0,297; 0,312) calculadas **solo** con el conjunto de
+con μ = (0,559; 0,537; 0,493) y σ = (0,294; 0,295; 0,310) calculadas **solo** con el conjunto de
 entrenamiento, para no filtrar información de validación y prueba. ⟳
 
 **7) Aumento de datos** (solo en entrenamiento): volteos horizontal y vertical, rotación aleatoria de

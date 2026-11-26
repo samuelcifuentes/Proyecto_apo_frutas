@@ -22,8 +22,8 @@ Salidas
 Decisiones (justificadas en el EDA)
   * Balanceo: máximo MAX_PER_CLASS imágenes por (fruta, calidad). Granada buena tenía
     5.940 imágenes (≈5,5× la clase más pequeña) → submuestreo aleatorio.
-  * División estratificada 70/15/15 por (fruta, calidad), estable (por hash de la ruta):
-    agregar imágenes nuevas no reordena las que ya estaban.
+  * División estratificada 70/15/15 por (fruta, calidad), estable y por RÁFAGAS: las fotos
+    casi idénticas de la misma fruta (dHash) van todas al mismo subconjunto, para evitar fuga.
   * Redimensionamiento con "letterbox": se escala el lado mayor a 128 px y se rellena
     con negro, para NO deformar la fruta (la forma importa para la calidad y el tamaño).
   * Normalización z-score por canal: x' = (x/255 − μ) / σ, con μ y σ de train
@@ -87,6 +87,76 @@ def build_index() -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# 1b. Ráfagas: fotos casi idénticas de la misma fruta
+# ---------------------------------------------------------------------------
+HASH_CACHE = PROC_DIR / "dhash.csv"
+BURST_MAX_DIST = 10   # bits distintos (de 64) para considerar dos fotos "la misma fruta"
+BURST_WINDOW = 3      # se compara cada foto con las 3 anteriores de su carpeta
+
+
+def _dhash(path: str, n: int = 8) -> str:
+    """
+    Hash perceptual por diferencias (dHash) de 64 bits.
+    Se reduce la imagen a 9x8 en grises y cada bit dice si un píxel es más claro que
+    su vecino de la derecha. Fotos casi iguales (misma fruta, leve cambio de ángulo)
+    dan hashes con pocos bits distintos (distancia de Hamming pequeña).
+    """
+    flag = cv2.IMREAD_REDUCED_GRAYSCALE_4 if Path(path).stat().st_size > 2e6 else cv2.IMREAD_GRAYSCALE
+    img = cv2.imread(path, flag)
+    if img is None:
+        return ""
+    img = cv2.resize(img, (n + 1, n), interpolation=cv2.INTER_AREA)
+    bits = (img[:, 1:] > img[:, :-1]).flatten()
+    return "".join("1" if b else "0" for b in bits)
+
+
+def compute_hashes(paths: pd.Series, max_seconds: float | None) -> dict | None:
+    """dHash de cada imagen, con caché en disco (reanudable). None si se acabó el tiempo."""
+    cache = {}
+    if HASH_CACHE.exists():
+        c = pd.read_csv(HASH_CACHE, dtype=str).fillna("")
+        cache = dict(zip(c["path"], c["dhash"]))
+    t0, new, done = time.time(), {}, True
+    for p in paths:
+        if p in cache or p in new:
+            continue
+        if max_seconds and time.time() - t0 > max_seconds:
+            done = False
+            break
+        new[p] = _dhash(p)
+    if new:
+        cache.update(new)
+        PROC_DIR.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame({"path": list(cache), "dhash": list(cache.values())}).to_csv(HASH_CACHE, index=False)
+    return cache if done else None
+
+
+def assign_groups(df: pd.DataFrame, hashes: dict) -> pd.Series:
+    """
+    Agrupa las ráfagas: dentro de cada carpeta (ordenada por nombre, es decir, por orden
+    de captura) se une cada foto con las BURST_WINDOW anteriores si la distancia de Hamming
+    entre sus dHash es <= BURST_MAX_DIST. Las uniones se encadenan (union-find), así que
+    una ráfaga completa queda en un solo grupo. Devuelve el id de grupo de cada fila.
+    """
+    parent = {p: p for p in df["path"]}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for _, g in df.groupby(df["path"].map(lambda p: str(Path(p).parent))):
+        paths = sorted(g["path"])
+        bits = [np.frombuffer(hashes.get(p, "").encode(), np.uint8) for p in paths]
+        for i in range(len(paths)):
+            for j in range(max(0, i - BURST_WINDOW), i):
+                if len(bits[i]) == 64 and len(bits[j]) == 64 and (bits[i] != bits[j]).sum() <= BURST_MAX_DIST:
+                    parent[find(paths[i])] = find(paths[j])
+    return df["path"].map(find)
+
+
+# ---------------------------------------------------------------------------
 # 2. Balanceo y 3. división
 # ---------------------------------------------------------------------------
 def balance(df: pd.DataFrame) -> pd.DataFrame:
@@ -103,28 +173,35 @@ def _hash01(path: str) -> float:
 
 def split(df: pd.DataFrame) -> pd.DataFrame:
     """
-    División train/val/test estratificada por (fruta, calidad) y ESTABLE.
+    División train/val/test estratificada por (fruta, calidad), ESTABLE y SIN FUGA.
 
-    Dentro de cada grupo (fruta, calidad) ordenamos las imágenes por un hash de su ruta y
-    asignamos el primer 70 % a train, el siguiente 15 % a val y el resto a test.
-      * Estratificada: cada grupo se reparte en las mismas proporciones.
-      * Estable: agregar fotos nuevas (o etiquetas "regular") NO cambia el split de las
-        imágenes que ya estaban; solo se mueven unas pocas en el borde de cada grupo.
-      * Funciona con grupos pequeños (p. ej. 2 fotos propias), donde train_test_split falla.
-    En grupos de 1–2 imágenes van todas a train.
+    1. Cada ráfaga (columna `group`) se trata como una unidad: todas sus fotos van al
+       mismo subconjunto. Si una ráfaga quedara repartida, el modelo vería en test una
+       fruta que ya vio en train y las métricas saldrían infladas (fuga de datos).
+    2. Dentro de cada grupo (fruta, calidad) se ordenan las ráfagas por un hash de su id y
+       se asignan a train hasta cubrir ~70 % de las imágenes, luego ~15 % a val y el resto
+       a test. El orden por hash hace la división estable al agregar imágenes nuevas.
+    3. Si una ráfaga tiene fotos en dos estratos (p. ej. una re-etiquetada como regular),
+       se le asigna el subconjunto de la mayoría de sus fotos.
+    En estratos de 1–2 imágenes todo va a train.
     """
     df = df.copy()
-    df["_h"] = df["path"].map(_hash01)
+    df["_h"] = df["group"].map(_hash01)
     df["split"] = "train"
     for _, g in df.groupby(["fruit", "quality"]):
-        idx = g.sort_values("_h").index
-        n = len(idx)
+        n = len(g)
         if n < 3:
             continue
-        n_train = round(n * SPLIT_FRACS[0])
-        n_val = max(1, round(n * SPLIT_FRACS[1]))
-        df.loc[idx[n_train:n_train + n_val], "split"] = "val"
-        df.loc[idx[n_train + n_val:], "split"] = "test"
+        sizes = g.groupby("group").size()
+        order = sizes.index[np.argsort([_hash01(k) for k in sizes.index])]
+        cum, lim_train, lim_val = 0, SPLIT_FRACS[0] * n, (SPLIT_FRACS[0] + SPLIT_FRACS[1]) * n
+        for grp in order:
+            dest = "train" if cum < lim_train else ("val" if cum < lim_val else "test")
+            df.loc[g.index[g["group"] == grp], "split"] = dest
+            cum += sizes[grp]
+    # una ráfaga, un subconjunto (mayoría)
+    major = df.groupby("group")["split"].agg(lambda s: s.value_counts().idxmax())
+    df["split"] = df["group"].map(major)
     return df.drop(columns="_h")
 
 
@@ -203,7 +280,15 @@ def compute_stats(df: pd.DataFrame, n_sample: int = 1500) -> dict:
 
 def main(max_seconds: float | None = None) -> None:
     PROC_DIR.mkdir(parents=True, exist_ok=True)
-    df = split(balance(build_index()))
+    df = balance(build_index())
+    hashes = compute_hashes(df["path"], max_seconds)
+    if hashes is None:
+        print("\nPausa por tiempo calculando hashes de ráfagas. Vuelve a correr el script.")
+        return
+    df["group"] = assign_groups(df, hashes)
+    print(f"\nRáfagas: {df['group'].nunique()} grupos para {len(df)} imágenes "
+          f"(máx. {df.groupby('group').size().max()} fotos por grupo)")
+    df = split(df)
     df["processed_path"] = df.apply(processed_path, axis=1)
     df.to_csv(SPLITS_CSV, index=False)
     print("\nImágenes por split y calidad:")
