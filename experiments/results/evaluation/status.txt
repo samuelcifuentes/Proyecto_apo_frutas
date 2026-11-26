@@ -1,0 +1,4 @@
+baseline: predicciones pendientes.
+logistic_regression: predicciones pendientes.
+svm: predicciones pendientes.
+random_forest: predicciones pendientes.
