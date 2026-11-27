@@ -66,6 +66,6 @@ X_train, y_train, meta = load_split("train")   # y: good=0, regular=1, bad=2
 
 ## Entregables
 - **Informe final (IEEE, PDF):** [`docs/informe/informe_final_ieee.pdf`](docs/informe/informe_final_ieee.pdf) — fuente editable en `docs/informe/informe_final_ieee.docx`.
-- **Video (máx. 10 min):** [ENLACE AL VIDEO — reemplazar]
+- **Video (máx. 10 min):** https://youtu.be/9jV-pjyypUw
 - **Modelo final:** SVM (RBF, C = 10), elegida por F1-macro en validación — `src/models/saved/svm.joblib`.
 - **App:** `streamlit run app/app.py` · **Etiquetado:** `streamlit run app/etiquetar.py`
