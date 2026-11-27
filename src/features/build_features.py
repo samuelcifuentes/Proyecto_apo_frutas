@@ -47,6 +47,7 @@ def main(max_seconds: float | None, limit: int | None, method: str) -> None:
     if limit:
         df = _sample(df, limit)
     done = pd.read_csv(OUT) if OUT.exists() else pd.DataFrame(columns=["path"])
+    done = done[done["path"].isin(set(df["path"]))].drop_duplicates("path")  # solo las del split actual
     todo = df[~df["path"].isin(set(done["path"]))]
     print(f"{len(df)} imágenes en total, {len(todo)} pendientes (método: {method})")
 
@@ -91,7 +92,14 @@ def main(max_seconds: float | None, limit: int | None, method: str) -> None:
         return
 
     feats = pd.read_csv(OUT).drop_duplicates("path", keep="last")
-    feats.to_csv(OUT, index=False)  # por si una corrida interrumpida dejó filas repetidas
+    # La caché guarda solo las características (dependen de la imagen). La etiqueta, el
+    # split y el grupo se toman SIEMPRE del splits.csv actual: así, si una etiqueta cambia
+    # (p. ej. revisión de "regular") no hace falta volver a extraer, y las imágenes que ya
+    # no están en el split se descartan.
+    meta_cols = ["processed_path", "fruit", "quality", "source", "split", "group"]
+    feats = feats.drop(columns=[c for c in meta_cols if c in feats.columns])
+    feats = df[["path", *meta_cols]].merge(feats, on="path", how="inner")
+    feats.to_csv(OUT, index=False)
     train = feats[(feats["split"] == "train") & feats["segmentation_ok"].astype(bool)]
     save_size_thresholds(fit_size_thresholds_by_fruit(train["fruit"], train["d_norm"].clip(0, 1)), THRESHOLDS)
     print(f"Listo: {OUT} y límites de tamaño por fruta en {THRESHOLDS}")
