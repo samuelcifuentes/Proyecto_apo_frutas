@@ -12,8 +12,35 @@ import streamlit as st
 PROJECT_ROOT = str(Path(__file__).resolve().parents[1])
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
+from src.data.preprocess import letterbox
 from src.data.segmentation import segment_fruit
-from src.features.size_estimation import estimate_size
+from src.features.extraction import extract_features
+from src.features.size_estimation import estimate_size, load_size_thresholds
+
+MODEL_PATH = Path(PROJECT_ROOT) / "src/models/saved/svm.joblib"          # modelo elegido por validación
+THRESHOLDS_PATH = Path(PROJECT_ROOT) / "experiments/results/size_thresholds.json"
+QUALITY_ES = {"good": "Buena", "regular": "Regular", "bad": "Mala"}
+FRUIT_ES = {"apple": "Manzana", "banana": "Banano", "guava": "Guayaba",
+            "lime": "Limón", "orange": "Naranja", "pomegranate": "Granada"}
+SIZE_ES = {"pequeño": "Pequeño", "mediano": "Mediano", "grande": "Grande"}
+
+
+@st.cache_resource
+def load_model():
+    import joblib
+    return joblib.load(MODEL_PATH)
+
+
+def predict_quality(image: np.ndarray) -> tuple[str, dict]:
+    """Mismo flujo que en el entrenamiento: 128x128 (letterbox) → U2-Net → 23 características → SVM."""
+    small = letterbox(image)
+    seg = segment_fruit(small)
+    feats = extract_features(small, seg["mask"]).reshape(1, -1)
+    model = load_model()
+    probs = model.predict_proba(feats)[0]
+    classes = [str(c) for c in model.named_steps["classifier"].classes_]
+    best = classes[int(np.argmax(probs))]
+    return best, dict(zip(classes, probs))
 
 
 def read_photo(upload) -> np.ndarray:
@@ -79,19 +106,27 @@ def main() -> None:
         return
 
     mask = result["mask"]
-    size = estimate_size(mask=mask)
+    fruit = st.selectbox("¿Qué fruta es?", list(FRUIT_ES), format_func=FRUIT_ES.get)
+    thresholds = load_size_thresholds(THRESHOLDS_PATH).get(fruit) if THRESHOLDS_PATH.exists() else None
+    size = estimate_size(mask=mask, thresholds=thresholds)
     preview = image.copy()
     cv2.drawContours(preview, [result["contour"]], -1, (250, 225, 30), 3)
     photo_col, results_col = st.columns([1.2, 1])
     with photo_col:
         st.image(preview, channels="BGR", caption="Contorno usado para la estimación")
     with results_col:
-        st.metric("Calidad · modelo de prueba", demo_quality(image, mask))
-        st.caption("Una regla de brillo sin entrenar simula la clasificación mientras el equipo evalúa los modelos.")
-        st.metric("Tamaño relativo · provisional", str(size["category"]).capitalize())
+        if MODEL_PATH.exists():
+            quality, probs = predict_quality(image)
+            st.metric("Calidad (SVM)", QUALITY_ES.get(quality, quality))
+            st.caption(" · ".join(f"{QUALITY_ES.get(k, k)} {v:.0%}" for k, v in
+                                  sorted(probs.items(), key=lambda kv: -kv[1])))
+        else:
+            st.metric("Calidad · regla de prueba", demo_quality(image, mask))
+            st.caption("No se encontró src/models/saved/svm.joblib: entrena con python -m src.models.train_classical.")
+        st.metric("Tamaño relativo", SIZE_ES.get(str(size["category"]), str(size["category"]).capitalize()))
         st.caption(
-            f"El diámetro equivalente ocupa el {size['diameter_normalized']:.0%} del lado menor "
-            "de la foto y cambia con el encuadre. Se usan límites iniciales hasta calibrarlos por fruta."
+            f"El diámetro equivalente ocupa el {size['diameter_normalized']:.0%} del lado menor de la foto; "
+            f"límites por fruta calculados con los terciles de entrenamiento. Cambia con el encuadre (≈30 cm)."
         )
 
 

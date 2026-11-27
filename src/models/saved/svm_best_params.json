@@ -5,12 +5,12 @@
     "classifier__estimator__gamma": "scale",
     "classifier__estimator__kernel": "rbf"
   },
-  "best_cv_f1_macro": 0.7121160550022071,
-  "mean_train_f1_macro": 0.9040825453716309,
+  "best_cv_f1_macro": 0.7073600565865812,
+  "mean_train_f1_macro": 0.9279782637956482,
   "class_distribution_train": {
-    "bad": 4604,
-    "good": 4891,
-    "regular": 224
+    "bad": 4776,
+    "good": 4914,
+    "regular": 82
   },
   "feature_columns": [
     "h_mean",

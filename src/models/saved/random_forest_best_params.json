@@ -6,12 +6,12 @@
     "classifier__min_samples_leaf": 2,
     "classifier__n_estimators": 100
   },
-  "best_cv_f1_macro": 0.7178097946108702,
-  "mean_train_f1_macro": 0.9714684708389487,
+  "best_cv_f1_macro": 0.6305210805236353,
+  "mean_train_f1_macro": 0.9774151719805625,
   "class_distribution_train": {
-    "bad": 4604,
-    "good": 4891,
-    "regular": 224
+    "bad": 4776,
+    "good": 4914,
+    "regular": 82
   },
   "feature_columns": [
     "h_mean",
