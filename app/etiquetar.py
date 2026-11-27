@@ -75,7 +75,17 @@ def candidates(source: str) -> list[tuple[str, str | None]]:
         for d in sorted((ROOT / "data/raw/Bad Quality_Fruits").glob("*_Bad")):
             fruit = KAGGLE_FRUIT[d.name.split("_")[0]]
             items += [(rel(p), fruit) for p in sorted(d.iterdir()) if p.suffix.lower() in EXTS]
-        random.Random(42).shuffle(items)  # mezclar para no revisar una sola ráfaga seguida
+        preds = ROOT / "experiments/results/random_forest_preds.csv"
+        if preds.exists():
+            # Primero las que el modelo cree más probable que sean "regular": así aparecen
+            # antes las frutas con defectos leves y no cientos de frutas podridas.
+            import pandas as pd
+            p = pd.read_csv(preds)
+            prob = dict(zip(p["image_path"].astype(str).str.replace("\\", "/", regex=False),
+                            p.get("prob_regular", pd.Series(0, index=p.index))))
+            items.sort(key=lambda it: -prob.get(it[0], 0.0))
+        else:
+            random.Random(42).shuffle(items)  # mezclar para no revisar una sola ráfaga seguida
     else:  # own
         items = [(rel(p), guess_fruit(p.name)) for p in sorted((ROOT / "data/own_images").iterdir())
                  if p.suffix.lower() in EXTS]
