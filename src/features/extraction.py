@@ -29,8 +29,8 @@ FEATURE_NAMES = (
     "texture_homogeneity",
     "texture_energy",
     "texture_correlation",
-    "shape_area_px",
-    "shape_perimeter_px",
+    "shape_area_frac",
+    "shape_perimeter_norm",
     "shape_circularity",
     "shape_aspect_ratio",
     "shape_solidity",
@@ -126,9 +126,14 @@ def _shape_features(mask: np.ndarray) -> tuple[float, ...]:
     hu_signed_log = -np.sign(hu) * np.log10(np.maximum(np.abs(hu), 1e-30))
     hu_signed_log = np.nan_to_num(hu_signed_log, nan=0.0, posinf=0.0, neginf=0.0)
 
+    # Área y perímetro NORMALIZADOS para que no dependan de la resolución de la foto
+    # (Kaggle 256 px, fotos propias 1024 px, recortes de Mixed ~50 px):
+    #   área relativa      = píxeles de fruta / píxeles de la imagen          ∈ [0, 1]
+    #   perímetro relativo = perímetro / lado menor de la imagen
+    img_h, img_w = mask.shape
     return (
-        float(np.count_nonzero(mask)),
-        perimeter,
+        float(np.count_nonzero(mask)) / float(img_h * img_w),
+        perimeter / float(min(img_h, img_w)),
         float(circularity),
         float(width / height) if height > 0 else 0.0,
         float(solidity),

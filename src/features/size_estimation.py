@@ -30,6 +30,40 @@ def fit_size_thresholds(training_diameters: Sequence[float]) -> tuple[float, flo
     return float(lower), float(upper)
 
 
+def fit_size_thresholds_by_fruit(
+    fruits: Sequence[str], training_diameters: Sequence[float]
+) -> dict[str, tuple[float, float]]:
+    """Terciles (P33, P66) del diámetro normalizado de train, calculados POR FRUTA.
+
+    Un limón grande sigue siendo más pequeño que una manzana pequeña, así que los
+    límites pequeño/mediano/grande deben depender de la especie
+    (ver docs/guia_etiquetado.md, sección 2).
+    """
+    fruits = np.asarray(fruits)
+    values = np.asarray(training_diameters, dtype=np.float64)
+    return {
+        str(fruit): fit_size_thresholds(values[fruits == fruit])
+        for fruit in np.unique(fruits)
+    }
+
+
+def save_size_thresholds(thresholds: dict[str, tuple[float, float]], path) -> None:
+    """Guarda los límites por fruta en JSON (los usa la app)."""
+    import json
+    from pathlib import Path
+
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_text(json.dumps({k: list(v) for k, v in thresholds.items()}, indent=2))
+
+
+def load_size_thresholds(path) -> dict[str, tuple[float, float]]:
+    """Lee los límites por fruta guardados con save_size_thresholds."""
+    import json
+    from pathlib import Path
+
+    return {k: tuple(v) for k, v in json.loads(Path(path).read_text()).items()}
+
+
 def _validate_thresholds(thresholds: tuple[float, float]) -> None:
     """Valida que los umbrales estén ordenados dentro del rango normalizado."""
     if len(thresholds) != 2:

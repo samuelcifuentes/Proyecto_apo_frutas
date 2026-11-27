@@ -33,6 +33,8 @@ QUALITY_LABELS = ("good", "regular", "bad")
 MODEL_NAMES = ("baseline", "svm", "random_forest", "logistic_regression")
 METADATA_COLUMNS = {
     "annotator",
+    "d_norm",
+    "group",
     "filename",
     "fruit",
     "image_path",
