@@ -39,10 +39,15 @@ def evaluate(frame):
             'f1_macro': f1_score(frame.y_true, frame.y_pred, labels=LABELS, average='macro', zero_division=0)}
 
 
-def select_best(test_scores):
-    """Selecciona entre los cuatro candidatos con F1-macro de test comparable."""
+def select_best(test_scores, split='val'):
+    """Selecciona entre los cuatro candidatos por F1-macro del split indicado.
+
+    La selección se hace con VALIDACIÓN: el conjunto de prueba solo se usa para reportar
+    el desempeño final del modelo ya elegido. Elegir con test haría que la cifra de test
+    dejara de ser una estimación imparcial del desempeño en frutas nuevas.
+    """
     missing = [name for name in CANDIDATES if name not in test_scores]
-    selection = {'split': 'test', 'metric': 'f1_macro', 'status': 'pending',
+    selection = {'split': split, 'metric': 'f1_macro', 'status': 'pending',
                  'winner': None, 'best_f1_macro': None, 'missing_models': missing,
                  'tied_models': []}
     if missing:
@@ -108,7 +113,11 @@ def compare(results, manifest, output):
     metrics.to_csv(output/'metrics.csv', index=False)
     pd.DataFrame(gaps, columns=['model','accuracy_gap','f1_macro_gap']).to_csv(output/'overfitting.csv', index=False)
     test = metrics[metrics.split == 'test'].sort_values('f1_macro', ascending=False)
-    selection = select_best(dict(zip(test.model, test.f1_macro)))
+    val = metrics[metrics.split == 'val']
+    selection = select_best(dict(zip(val.model, val.f1_macro)), split='val')
+    # F1-macro de test de cada candidato, solo para reportar (no interviene en la elección)
+    selection['test_f1_macro'] = {m: round(float(f), 4) for m, f in zip(test.model, test.f1_macro)
+                                  if m in CANDIDATES}
     with TemporaryDirectory(dir=output) as staging:
         selection_file = Path(staging) / 'selection.json'
         selection_file.write_text(json.dumps(selection, indent=2) + '\n', encoding='utf-8')

@@ -39,13 +39,14 @@ class EvaluationTests(unittest.TestCase):
 
     def test_windows_predictions_match_manifest_and_incomplete_models_are_excluded(self):
         labels = ['good', 'regular', 'bad']
+        # La selección usa validación y el reporte usa prueba: el manifiesto tiene ambos splits.
         manifest = pd.DataFrame({
-            'path': [f'data/{label}.jpg' for label in labels],
-            'split': 'test', 'fruit': 'apple', 'quality': labels,
+            'path': [f'data/{label}.jpg' for label in labels] * 2,
+            'split': ['val'] * 3 + ['test'] * 3, 'fruit': 'apple', 'quality': labels * 2,
         })
         predictions = pd.DataFrame({
             'image_path': manifest.path.str.replace('/', '\\', regex=False),
-            'split': 'test', 'y_true': labels, 'y_pred': labels,
+            'split': manifest.split, 'y_true': labels * 2, 'y_pred': labels * 2,
         })
         with TemporaryDirectory() as directory:
             root = Path(directory)
@@ -60,6 +61,7 @@ class EvaluationTests(unittest.TestCase):
             self.assertEqual(selected['status'], 'selected')
             self.assertEqual(selected['winner'], 'random_forest')
             self.assertEqual(selected['best_f1_macro'], 1.0)
+            self.assertEqual(selected['split'], 'val')
             self.assertTrue((output / 'random_forest_test_confusion.svg').is_file())
             self.assertTrue((output / 'comparison.svg').is_file())
             (root / 'logistic_regression_preds.csv').unlink()
@@ -71,10 +73,10 @@ class EvaluationTests(unittest.TestCase):
             self.assertIsNone(pending['winner'])
             self.assertCountEqual(pending['missing_models'], ['logistic_regression', 'svm', 'cnn'])
             metrics = pd.read_csv(output / 'metrics.csv')
-            self.assertEqual(metrics.to_dict('records'), [{
-                'model': 'random_forest', 'split': 'test', 'n': 3,
-                'accuracy': 1.0, 'f1_macro': 1.0,
-            }])
+            self.assertEqual(metrics.to_dict('records'), [
+                {'model': 'random_forest', 'split': 'val', 'n': 3, 'accuracy': 1.0, 'f1_macro': 1.0},
+                {'model': 'random_forest', 'split': 'test', 'n': 3, 'accuracy': 1.0, 'f1_macro': 1.0},
+            ])
             self.assertIn('svm/test: cobertura', (output / 'status.txt').read_text(encoding='utf-8'))
 
 

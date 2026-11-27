@@ -21,7 +21,7 @@ from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
-from sklearn.model_selection import GridSearchCV, StratifiedKFold
+from sklearn.model_selection import GridSearchCV, StratifiedGroupKFold, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
@@ -117,7 +117,12 @@ def build_grid_search(model_name: str) -> GridSearchCV:
     else:
         raise ValueError(f"Modelo no reconocido: {model_name}")
 
-    cross_validation = StratifiedKFold(
+    # Validación cruzada estratificada POR GRUPOS (ráfagas de fotos de la misma fruta):
+    # todas las fotos de una ráfaga caen en el mismo pliegue. Con StratifiedKFold simple,
+    # fotos casi idénticas quedaban en entrenamiento y validación del mismo pliegue, el
+    # F1 de CV salía inflado (≈0,81–0,83 frente a ≈0,70–0,74 en validación real) y la
+    # búsqueda favorecía configuraciones que memorizan.
+    cross_validation = StratifiedGroupKFold(
         n_splits=5, shuffle=True, random_state=42
     )
     return GridSearchCV(
@@ -203,6 +208,11 @@ def _prepare_split(
         )
 
     valid_data = dataframe.loc[valid]
+    groups = (
+        valid_data["group"].astype(str).to_numpy()
+        if "group" in valid_data
+        else valid_data.index.astype(str).to_numpy()  # sin grupos: cada fila es su grupo
+    )
     image_column = next(
         (name for name in ("image_path", "path", "filename") if name in valid_data),
         None,
@@ -216,6 +226,7 @@ def _prepare_split(
         features.loc[valid].to_numpy(dtype=np.float64),
         labels.loc[valid].to_numpy(dtype=str),
         image_paths,
+        groups,
     )
 
 
@@ -333,7 +344,7 @@ def train_model(
             LOGGER.warning("No hay filas válidas para evaluar en %s", name)
     if "train" not in prepared:
         raise ValueError("No hay datos válidos en el split train")
-    x_train, y_train, _ = prepared["train"]
+    x_train, y_train, _, groups_train = prepared["train"]
     classes, counts = np.unique(y_train, return_counts=True)
     distribution = dict(zip(classes.tolist(), counts.tolist()))
     print(f"\nDistribución de clases en train: {distribution}")
@@ -341,12 +352,12 @@ def train_model(
         raise ValueError("El entrenamiento requiere al menos dos clases")
     if np.min(counts) < 5:
         raise ValueError(
-            "StratifiedKFold(5) requiere al menos 5 ejemplos por clase en train; "
+            "StratifiedGroupKFold(5) requiere al menos 5 ejemplos por clase en train; "
             f"distribución actual: {distribution}"
         )
 
     search = build_grid_search(model_name)
-    search.fit(x_train, y_train)
+    search.fit(x_train, y_train, groups=groups_train)
     best_index = search.best_index_
     mean_train_score = float(search.cv_results_["mean_train_score"][best_index])
     mean_validation_score = float(search.cv_results_["mean_test_score"][best_index])
@@ -381,7 +392,7 @@ def train_model(
     for split_name in ("train", "val", "test"):
         if split_name not in prepared:
             continue
-        x_values, y_true, image_paths = prepared[split_name]
+        x_values, y_true, image_paths, _ = prepared[split_name]
         y_pred = estimator.predict(x_values).astype(str)
         _print_metrics(model_name, split_name, y_true, y_pred, labels)
         matrix = confusion_matrix(y_true, y_pred, labels=labels)

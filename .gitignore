@@ -24,3 +24,9 @@ venv/
 Thumbs.db
 .env
 kaggle.json
+
+# Resultados de la prueba con muestra (no son los finales)
+experiments/results/muestra/
+experiments/checkpoints/muestra/
+# Modelo pesado (~25 MB): se regenera con src.models.train_classical
+src/models/saved/random_forest.joblib
