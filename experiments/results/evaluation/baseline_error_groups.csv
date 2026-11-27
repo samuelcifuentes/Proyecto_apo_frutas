@@ -1,0 +1,13 @@
+fruit,y_true,y_pred,count
+apple,bad,good,159
+apple,regular,good,4
+banana,bad,good,136
+banana,regular,good,1
+guava,bad,good,154
+guava,regular,good,12
+lime,bad,good,148
+lime,regular,good,7
+orange,bad,good,157
+orange,regular,good,5
+pomegranate,bad,good,168
+pomegranate,regular,good,4

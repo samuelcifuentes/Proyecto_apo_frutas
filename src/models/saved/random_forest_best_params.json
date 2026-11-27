@@ -1,0 +1,41 @@
+{
+  "model": "random_forest",
+  "best_params": {
+    "classifier__max_depth": 15,
+    "classifier__max_features": "sqrt",
+    "classifier__min_samples_leaf": 2,
+    "classifier__n_estimators": 100
+  },
+  "best_cv_f1_macro": 0.7178097946108702,
+  "mean_train_f1_macro": 0.9714684708389487,
+  "class_distribution_train": {
+    "bad": 4604,
+    "good": 4891,
+    "regular": 224
+  },
+  "feature_columns": [
+    "h_mean",
+    "h_std",
+    "s_mean",
+    "s_std",
+    "v_mean",
+    "v_std",
+    "texture_contrast",
+    "texture_homogeneity",
+    "texture_energy",
+    "texture_correlation",
+    "shape_area_frac",
+    "shape_perimeter_norm",
+    "shape_circularity",
+    "shape_aspect_ratio",
+    "shape_solidity",
+    "shape_eccentricity",
+    "shape_hu_1",
+    "shape_hu_2",
+    "shape_hu_3",
+    "shape_hu_4",
+    "shape_hu_5",
+    "shape_hu_6",
+    "shape_hu_7"
+  ]
+}

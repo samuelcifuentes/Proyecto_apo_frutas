@@ -1,0 +1,36 @@
+{
+  "model": "baseline",
+  "best_params": {},
+  "best_cv_f1_macro": 0.22318046484038204,
+  "mean_train_f1_macro": 0.22318046967513444,
+  "class_distribution_train": {
+    "bad": 4604,
+    "good": 4891,
+    "regular": 224
+  },
+  "feature_columns": [
+    "h_mean",
+    "h_std",
+    "s_mean",
+    "s_std",
+    "v_mean",
+    "v_std",
+    "texture_contrast",
+    "texture_homogeneity",
+    "texture_energy",
+    "texture_correlation",
+    "shape_area_frac",
+    "shape_perimeter_norm",
+    "shape_circularity",
+    "shape_aspect_ratio",
+    "shape_solidity",
+    "shape_eccentricity",
+    "shape_hu_1",
+    "shape_hu_2",
+    "shape_hu_3",
+    "shape_hu_4",
+    "shape_hu_5",
+    "shape_hu_6",
+    "shape_hu_7"
+  ]
+}

@@ -1,13 +1,15 @@
 {
-  "split": "test",
+  "split": "val",
   "metric": "f1_macro",
-  "status": "pending",
-  "winner": null,
-  "best_f1_macro": null,
-  "missing_models": [
-    "logistic_regression",
-    "svm",
-    "random_forest"
-  ],
-  "tied_models": []
+  "status": "selected",
+  "winner": "random_forest",
+  "best_f1_macro": 0.7743615307859074,
+  "missing_models": [],
+  "tied_models": [],
+  "test_f1_macro": {
+    "svm": 0.6477,
+    "cnn": 0.6398,
+    "random_forest": 0.6377,
+    "logistic_regression": 0.5161
+  }
 }
