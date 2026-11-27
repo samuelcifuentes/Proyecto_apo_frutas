@@ -334,3 +334,13 @@ data/interim/mixed_crops/guava/IMG20200729173251_c1.jpg,guava,regular,,mixed,sam
 data/interim/mixed_crops/guava/IMG20200729173330_c0.jpg,guava,regular,,mixed,samuell
 data/interim/mixed_crops/orange/IMG20200728131019_c1.jpg,orange,good,,mixed,samuell
 data/interim/mixed_crops/pomegranate/IMG20200728124904_c5.jpg,pomegranate,good,,mixed,samuell
+data/own_images/banano_juanc_01.jpeg,banana,regular,,own,juanc
+data/own_images/banano_juanc_02.jpeg,banana,regular,,own,juanc
+data/own_images/limon_juanc_01.jpeg,lime,good,,own,juanc
+data/own_images/limon_juanc_02.jpeg,lime,good,,own,juanc
+data/own_images/naranja_juanc_01.jpeg,orange,bad,,own,juanc
+data/own_images/naranja_juanc_02.jpeg,orange,bad,,own,juanc
+data/own_images/manzana_juanc_01.jpeg,apple,regular,,own,juanc
+data/own_images/manzana_juanc_02.jpeg,apple,good,,own,juanc
+data/own_images/guayaba_juanc_01.jpeg,guava,regular,,own,juanc
+data/own_images/guayaba_juanc_02.jpeg,guava,regular,,own,juanc
