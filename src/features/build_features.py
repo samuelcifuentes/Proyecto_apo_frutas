@@ -50,8 +50,18 @@ def main(max_seconds: float | None, limit: int | None, method: str) -> None:
     todo = df[~df["path"].isin(set(done["path"]))]
     print(f"{len(df)} imágenes en total, {len(todo)} pendientes (método: {method})")
 
-    rows, t0 = [], time.time()
-    for _, r in todo.iterrows():
+    rows, t0, saved = [], time.time(), 0
+
+    def flush():
+        """Guarda en disco lo procesado hasta ahora (así no se pierde si se interrumpe)."""
+        nonlocal rows, saved
+        if rows:
+            OUT.parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(rows).to_csv(OUT, mode="a", header=not OUT.exists(), index=False)
+            saved += len(rows)
+            rows = []
+
+    for i, (_, r) in enumerate(todo.iterrows(), 1):
         if max_seconds and time.time() - t0 > max_seconds:
             break
         img = cv2.imread(r["processed_path"])
@@ -65,19 +75,23 @@ def main(max_seconds: float | None, limit: int | None, method: str) -> None:
         row.update({"image_path": r["path"], "segmentation_ok": seg_ok, "d_norm": d_norm})
         row.update(dict(zip(FEATURE_NAMES, feats)))
         rows.append(row)
+        if i % 100 == 0:
+            flush()
+            rate = i / (time.time() - t0)
+            left = (len(todo) - i) / rate / 60
+            print(f"  {len(done) + i}/{len(df)} imágenes ({rate:.2f} img/s, faltan ≈ {left:.0f} min)", flush=True)
 
-    if rows:
-        OUT.parent.mkdir(parents=True, exist_ok=True)
-        pd.DataFrame(rows).to_csv(OUT, mode="a", header=not OUT.exists(), index=False)
-    total = len(done) + len(rows)
-    rate = len(rows) / max(1e-9, time.time() - t0)
-    print(f"Procesadas en esta corrida: {len(rows)} ({rate:.2f} img/s). Total: {total}/{len(df)}")
+    flush()
+    total = len(done) + saved
+    rate = saved / max(1e-9, time.time() - t0)
+    print(f"Procesadas en esta corrida: {saved} ({rate:.2f} img/s). Total: {total}/{len(df)}")
     if total < len(df):
         print(f"Faltan {len(df) - total}. Vuelve a correr el comando "
               f"(≈ {(len(df) - total) / max(rate, 1e-9) / 60:.0f} min a este ritmo).")
         return
 
-    feats = pd.read_csv(OUT)
+    feats = pd.read_csv(OUT).drop_duplicates("path", keep="last")
+    feats.to_csv(OUT, index=False)  # por si una corrida interrumpida dejó filas repetidas
     train = feats[(feats["split"] == "train") & feats["segmentation_ok"].astype(bool)]
     save_size_thresholds(fit_size_thresholds_by_fruit(train["fruit"], train["d_norm"].clip(0, 1)), THRESHOLDS)
     print(f"Listo: {OUT} y límites de tamaño por fruta en {THRESHOLDS}")
